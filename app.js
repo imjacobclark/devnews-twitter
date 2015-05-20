@@ -34,7 +34,7 @@ DeveloperNewsTwitter.prototype.getRandomStory = function(){
         body = JSON.parse(body);
 
         var randomStory = Math.floor(Math.random() * body.length + 1);
-        var tweet = (randomStory + 1) + ": " + body[randomStory].title + " - " + body[randomStory].url;
+        var tweet = (randomStory + 1) + ": " + body[randomStory].title + " - " + body[randomStory].url + " via http://devnews.today";
 
         for(var i = 0; i < _this.hashtags.length; i++){
             if(tweet.indexOf(_this.hashtags[i]) > -1)
