@@ -6,7 +6,7 @@ function DeveloperNewsTwitter(){
 		consumer_key: process.env.CON_KEY,
 		consumer_secret: process.env.CON_SEC,
 		access_token_key: process.env.ACC_KEY,
-		access_token_secret: process.env.access_token_secretterm
+		access_token_secret: process.env.ACC_SEC
 	});
 
 	this.hashtags = ["javascript", "php", "docker", "coreos", "node", "npm", "unix", "linux"];
