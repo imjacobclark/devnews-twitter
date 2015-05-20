@@ -1,5 +1,5 @@
 # devnews-twitter
-Developer news twitter client
+Developer news Twitter client
 
 [Data provided by the devnews-core API](http://github.com/imjacobclark/devnews-core)
 
