@@ -1,5 +1,5 @@
 var http = require('http');
-	Twitter = require('twitter'); 
+    Twitter = require('twitter'); 
 
 function DeveloperNewsTwitter(){
     this.client = new Twitter({
@@ -9,7 +9,7 @@ function DeveloperNewsTwitter(){
         access_token_secret: process.env.ACC_SEC
     });
 
-    this.hashtags = ["javascript", "node", "iojs", "osx", "php", "docker", "coreos", "node", "npm", "unix", "linux"];
+    this.hashtags   = ["javascript", "node", "iojs", "osx", "php", "docker", "coreos", "node", "npm", "unix", "linux"];
 };
 
 DeveloperNewsTwitter.prototype.tweet = function(tweet){
