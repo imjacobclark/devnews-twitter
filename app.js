@@ -42,7 +42,7 @@ DeveloperNewsTwitter.prototype.getRandomStory = function(){
             }
 
             if(tweet.length > 140)
-                dnt.getRandomStory();
+                _this.getRandomStory();
             else
                 _this.tweet(tweet);
         });
