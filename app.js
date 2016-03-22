@@ -9,7 +9,7 @@ function DeveloperNewsTwitter(){
         access_token_secret: process.env.ACC_SEC
     });
 
-    this.hashtags   = ["javascript", "node", "iojs", "osx", "php", "docker", "coreos", "node", "npm", "unix", "linux"];
+    this.hashtags   = ["javascript", "node", "iojs", "osx", "php", "docker", "coreos", "node", "npm", "unix", "linux", "go", "google", "cloud", "devops", "swift"];
 };
 
 DeveloperNewsTwitter.prototype.tweet = function(tweet){
@@ -34,7 +34,7 @@ DeveloperNewsTwitter.prototype.getRandomStory = function(){
         body = JSON.parse(body);
 
         var randomStory = Math.floor(Math.random() * body.length + 1);
-        var tweet = (randomStory + 1) + ": " + body[randomStory].title + " - " + body[randomStory].url + " via http://devnews.today";
+        var tweet = body[randomStory].title + " - " + body[randomStory].url + " via http://devnews.today";
 
         for(var i = 0; i < _this.hashtags.length; i++){
             if(tweet.indexOf(_this.hashtags[i]) > -1)
@@ -50,4 +50,4 @@ DeveloperNewsTwitter.prototype.getRandomStory = function(){
 }
 
 dnt = new DeveloperNewsTwitter();
-setInterval(dnt.getRandomStory(), 1000 * 60 * 60);
+setInterval(dnt.getRandomStory(), 600000);
