@@ -10,7 +10,7 @@ function DeveloperNewsTwitter(){
         access_token_secret: process.env.ACC_SEC
     });
 
-    this.hashtags   = ["javascript", "node", "iojs", "osx", "php", "docker", "coreos", "node", "npm", "unix", "linux", "go", "google", "cloud", "devops", "swift", "iphone", "fbi", "intel", "mongodb", "google", "microsoft"];
+    this.hashtags   = ["javascript", "node", "iojs", "osx", "php", "docker", "coreos", "node", "npm", "unix", "linux", "go", "google", "cloud", "devops", "swift", "iphone", "fbi", "intel", "mongodb", "google", "microsoft", "Node.js"];
 };
 
 DeveloperNewsTwitter.prototype.tweet = function(tweet){
