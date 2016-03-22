@@ -20,37 +20,43 @@ DeveloperNewsTwitter.prototype.tweet = function(tweet){
 }
 
 DeveloperNewsTwitter.prototype.getRandomStory = function(){
-    var _this = this; 
-
-    http.get({
-        host: 'api.devnews.today'
-    }, function(response){
-        var body = '';
-
-        response.on('data', function(d) {
-            body += d;
-        });
-
-        response.on('end', function() {
-        body = JSON.parse(body);
-
-        var randomStory = Math.floor(Math.random() * body.length + 1);
-        var tweet = body[randomStory].title + " - " + body[randomStory].url + " via http://devnews.today";
-
-        for(var i = 0; i < _this.hashtags.length; i++){
-            if(tweet.indexOf(_this.hashtags[i]) > -1)
-                tweet = tweet.replace(_this.hashtags[i], "#" + _this.hashtags[i]);
-            }
-
-            if(tweet.length > 140)
-                _this.getRandomStory();
-            else
-                _this.tweet(tweet);
-        });
-    });
+    try{
+        var _this = this; 
     
-    console.log(story);
-    story++;
+        http.get({
+            host: 'api.devnews.today'
+        }, function(response){
+            var body = '';
+    
+            response.on('data', function(d) {
+                body += d;
+            });
+    
+            response.on('end', function() {
+            body = JSON.parse(body);
+    
+            var randomStory = Math.floor(Math.random() * body.length + 1);
+            var tweet = body[randomStory].title;
+            var url = body[randomStory].url + " via http://devnews.today";
+    
+            for(var i = 0; i < _this.hashtags.length; i++){
+                if(tweet.indexOf(_this.hashtags[i]) > -1)
+                    tweet = tweet.replace(_this.hashtags[i], "#" + _this.hashtags[i]);
+                }
+    
+                if(tweet.length > 140)
+                    _this.getRandomStory();
+                else
+                    _this.tweet(tweet + " - " + url);
+            });
+        });
+        
+        console.log(story);
+        story++;
+    }catch(e){
+        console.log(e);
+        _this.getRandomStory();
+    }
 }
 
 dnt = new DeveloperNewsTwitter();
