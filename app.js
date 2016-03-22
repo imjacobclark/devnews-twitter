@@ -1,5 +1,6 @@
 var http = require('http');
-    Twitter = require('twitter'); 
+    Twitter = require('twitter')
+    story = 0; 
 
 function DeveloperNewsTwitter(){
     this.client = new Twitter({
@@ -9,7 +10,7 @@ function DeveloperNewsTwitter(){
         access_token_secret: process.env.ACC_SEC
     });
 
-    this.hashtags   = ["javascript", "node", "iojs", "osx", "php", "docker", "coreos", "node", "npm", "unix", "linux", "go", "google", "cloud", "devops", "swift"];
+    this.hashtags   = ["javascript", "node", "iojs", "osx", "php", "docker", "coreos", "node", "npm", "unix", "linux", "go", "google", "cloud", "devops", "swift", "iphone", "fbi", "intel", "mongodb", "google", "microsoft"];
 };
 
 DeveloperNewsTwitter.prototype.tweet = function(tweet){
@@ -47,6 +48,9 @@ DeveloperNewsTwitter.prototype.getRandomStory = function(){
                 _this.tweet(tweet);
         });
     });
+    
+    console.log(story);
+    story++;
 }
 
 dnt = new DeveloperNewsTwitter();
