@@ -20,9 +20,9 @@ DeveloperNewsTwitter.prototype.tweet = function(tweet){
 }
 
 DeveloperNewsTwitter.prototype.getRandomStory = function(){
-    try{
-        var _this = this; 
+    var _this = this; 
     
+    try{
         http.get({
             host: 'api.devnews.today'
         }, function(response){
@@ -33,6 +33,7 @@ DeveloperNewsTwitter.prototype.getRandomStory = function(){
             });
     
             response.on('end', function() {
+                
             body = JSON.parse(body);
     
             var randomStory = Math.floor(Math.random() * body.length + 1);
