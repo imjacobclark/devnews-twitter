@@ -61,4 +61,4 @@ DeveloperNewsTwitter.prototype.getRandomStory = function(){
 }
 
 dnt = new DeveloperNewsTwitter();
-setInterval(dnt.getRandomStory(), 600000);
+setInterval(dnt.getRandomStory(), 60000);
